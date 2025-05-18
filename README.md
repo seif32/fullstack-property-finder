@@ -3,7 +3,7 @@
 This repository contains a full-stack property finder service, divided into two main directories:
 
 - **Frontend**: [`property-finder`](./property-finder)
-- **Backend**: [`Aspect-project`](./Aspect-project)
+- **Backend**: [`Aspect-Project`](./Aspect-Project)
 
 ## 🚀 Project Overview
 
