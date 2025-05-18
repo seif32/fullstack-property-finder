@@ -109,13 +109,13 @@ The system offers advanced search functionality, location browsing, appointment 
 
 The backend provides a RESTful API covering the following controllers:
 
-- [BookmarkController](#bookmark-api-documentation)
-- [LocationController](#location-api-documentation)
-- [PropertyController](#property-api-documentation)
-- [PropertyImageController](#property-image-api-documentation)
-- [ReviewController](#review-api-documentation)
-- [UserController](#user-api-documentation)
-- [AppointmentController](#appointments-api-documentation)
+- [BookmarkController]
+- [LocationController]
+- [PropertyController]
+- [PropertyImageController]
+- [ReviewController]
+- [UserController]
+- [AppointmentController]
 
 Each controller includes detailed endpoints for managing related data objects.
 
