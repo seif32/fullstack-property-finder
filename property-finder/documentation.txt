@@ -1,0 +1,133 @@
+our system is a property finder service, we provide a seamless services for guests to find their desired properties using advanced searching algo and bookmarking their favs, and for agents to create and list the properties they have for guests to see them, also to schedule meetings between the guest and the client, and there is the admin that controls the promotion for the user to be an agent, and this was a high level overview for our system, and we have three roles in our system: admin, user, agent. Each one has its specific duties and pages they have auth for them.
+
+
+#Roles:
+Admin:
+  - control the user management, he promotes the user to be an agent
+
+User:
+  - can browse all the properties, and filter them by aspect they want
+  - can browse all the locations, and see all the properties for this locations
+  - can write reviews for every property they want
+  - can contact the agent for an appointment telling the date and time they want
+  - can bookmark any of the properties they see, and see them all in their bookmarks page
+
+Agent:
+  - can browse all the properties, and filter them by aspect they want
+  - can browse all the locations, and see all the properties for this locations
+  - can create property and fill all the fields required(Basic Information
+Property Title
+Description
+Property Type
+Select Property Type
+Listing Type
+Select Listing Type
+Location & Details
+Location
+Select Location
+Price
+$
+Bedrooms
+Bathrooms
+Area (m²)
+)
+  - can edit, view, delete any property he own
+  - also can manage the appointments they get from the users, and based on his schedule he can accept or reject
+  - has its own profile page that can change his personal info whenever he wants
+
+
+
+#Pages:
+path: "admin/users",
+<AdminUserManagement />
+  - this page is the only page that appears to the admin, it has 3 cards showing: total users, agents, users. also there is search bar by name or email. a sorting filter for roles. the main body contains all the users and their roles, and beside only the regular users there is  "promote to agent" button and this make the regular user to an agent to has all the authorities for an agent role
+
+<HomePage />
+  - the home page is the index route of our site, it is available for the users and the agents.
+  - in the hero section, there is two CTA buttons: "Search properties" -> display a box card that has advanced search filters (location, property type, listing type, bedrooms, price range) you can fill all these input fields and then begin the searching, "Explore featured listings" -> this will go to the properties page that has the list for all properties
+  - the section under it, will have the featured properties, three of the property cards
+  - the section under it, popular locations , cards that has listings of the main locations and by pressing it, it will navigate to the properties of this location.
+  - the section under it, three cards showing the process of our system does
+  - the section under it, a testominals of our clients opinion
+  - at the bottom , "browse properties" CTA button
+
+path: "properties",
+<PropertyListingPage />
+  - here is the list of all the properties, showing them by cards and has intial info in each card
+  - also there is a filter functionality for display the properties according to the filter
+
+path: "properties/:id",
+<PropertyDetailPage />
+  - here is the property details page, it shows the property name and description and location and the primary images along with the aditional images, shows how many bedrooms, bathroom, proerpty type, price , listed by who, location
+  - also there is a reviews section in the page, this section shows the reviews for the property and the ability for the user to write a reviews
+  - also for users only there is the ability for a CTA button "Contact Agent" for scheduling an appointment to see the property
+  - a simliar properties section for showing cards of another properties
+
+path: "properties/create",
+<CreatePropertyPage />
+  - here the page is only for agents, as they can create the properties for sale or rent and fill these fields(Property Title
+Description
+Property Type
+
+Select Property Type
+Listing Type
+
+Select Listing Type
+Location & Details
+Location
+
+Select Location
+Price
+$
+Bedrooms
+Bathrooms
+Area (m²))
+
+path: "properties/:id/edit",
+<EditPropertyPage /
+  - here the page is for editing any property the owner like, the page will pre filled with the old info and he can change it
+
+path: "properties/:id/images",
+<PropertyImagesPage />
+  - here it will list all the images for the specific property.
+  - the agent can add new images for eh property, by pressing the button it will appear as a modal, that has fields for image url and description to be filled.
+  - the agent can edit,delete an image
+
+path: "my-properties",
+<MyPropertiesPage />
+  - here the page will list all the propertied owned by the agent, and can filter based on "for sale" "for rent"
+  -the agent can add new property
+  - the agent can view, edit, delete any property he want
+
+path: "bookmarks",
+<BookmarksPage />
+  - this page will display all the properties the normal user has liked/bookmarked it , and can remove from them if he wants
+
+path: "profile",
+<ProfilePage />
+  - here any user/agent/admin can see and change their personal info
+
+path: "locations",
+<LocationBrowsePage />
+  - here list by cards all the locations that properties can be and can be fiterled by citys and dsitrcits and neighborhoods
+
+path: "admin/users",
+<AdminUserManagement />
+  - now this will have three cards, shwoing total users, agents, regular users by numbers
+  -can search by name or email
+  - have cards for all users and their roles
+  - and for regular users only have button for promotion to agents
+
+path: "properties/:propertyId/request-appointment",
+<RequestAppointmentPage />
+  - here the page for users only will display a form, that will request for a property viewing appointment
+  - it will has fields for name and emaill and phone number, all these will be pre filled by the logged in user
+  - while preffered date and preffered time and notes will be filled by the logged in user to schedule tha appointment
+
+path: "agent/viewing-requests",
+<ViewingRequestsPage />
+  - this page will display satts for pending and approved and declined for the requests, and falso has cards for the requests of the users to view the property , and the agent has the control to accept or decline accroding to his scehdule
+
+
+path: "unauthorized", element: <UnauthorizedPage />
+  - this page for any of the user tried to acccess a route its not defined for them
